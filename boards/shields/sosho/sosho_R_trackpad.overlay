@@ -37,7 +37,7 @@ https://zmk.dev/docs/keymaps/input-processors
 &glidepoint_split { status = "okay"; };
 &glidepoint_split_listener {
     status = "okay";
-    input-processors = <&zip_xy_scaler 7 30>, <&zip_xy_to_scroll_mapper>;
+    input-processors = <&zip_xy_scaler 1 3>, <&zip_xy_to_scroll_mapper>;
 };
 
 &trackball_split { status = "okay"; };
