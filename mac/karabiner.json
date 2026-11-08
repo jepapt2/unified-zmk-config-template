@@ -1,0 +1,117 @@
+{
+    "profiles": [
+        {
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": {
+                "keyboard_type_v2": "ansi"
+            },
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Sosho TH-601: number layer top-left toggles Japanese / English",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "grave_accent_and_tilde",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "japanese_eisuu",
+                                        "repeat": false
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "device_if",
+                                        "identifiers": [
+                                            {
+                                                "vendor_id": 7504,
+                                                "product_id": 24926,
+                                                "is_keyboard": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "input_source_if",
+                                        "input_sources": [
+                                            {
+                                                "language": "^ja$"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "grave_accent_and_tilde",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "japanese_kana",
+                                        "repeat": false
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "device_if",
+                                        "identifiers": [
+                                            {
+                                                "vendor_id": 7504,
+                                                "product_id": 24926,
+                                                "is_keyboard": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "input_source_unless",
+                                        "input_sources": [
+                                            {
+                                                "language": "^ja$"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": {
+                        "vendor_id": 7504,
+                        "product_id": 24926,
+                        "is_keyboard": true,
+                        "is_pointing_device": true
+                    },
+                    "ignore": false,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_command"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
